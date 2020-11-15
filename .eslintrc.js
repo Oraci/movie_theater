@@ -3,7 +3,13 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['airbnb', 'eslint:recommended', 'prettier', 'prettier/react'],
+  extends: [
+    'airbnb',
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'prettier',
+    'prettier/react',
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',

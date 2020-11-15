@@ -5,6 +5,7 @@ import Header from 'components/Header';
 import Filter from 'components/Filter';
 import MovieList from 'components/MovieList';
 import Discover from 'components/Discover';
+import Loader from 'components/Loader';
 
 import { Types } from 'store/reducers/movies';
 
@@ -33,6 +34,7 @@ function Home() {
         <Filter />
       </Header>
       <Content>
+        <Loader />
         {!searchText ? (
           <Discover />
         ) : (

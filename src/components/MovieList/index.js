@@ -1,21 +1,19 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
-import { Container, ContainerList, NoResults } from './styles';
+import { Container, ContainerList } from './styles';
 
 import MovieCard from '../MovieCard';
 
 function CardList({ list }) {
-  return (
+  const isShow = useCallback(list.length > 0, [list]);
+
+  return !isShow ? null : (
     <Container>
-      {list.length > 0 ? (
-        <ContainerList>
-          {list.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
-          ))}
-        </ContainerList>
-      ) : (
-        <NoResults>No records</NoResults>
-      )}
+      <ContainerList>
+        {list.map((movie) => (
+          <MovieCard movie={movie} key={movie.id} />
+        ))}
+      </ContainerList>
     </Container>
   );
 }

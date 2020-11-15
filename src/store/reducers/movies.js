@@ -43,7 +43,6 @@ const setSearchText = (state = initialState, { payload: searchText }) => ({
 
 const setRating = (state = initialState, { payload: rating }) => ({
   ...state,
-  // searchText: initialState.searchText,
   rating,
 });
 
