@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { ImFire, ImFinder } from 'react-icons/im';
 
 import Header from 'components/Header';
 import Filter from 'components/Filter';
 import MovieList from 'components/MovieList';
-import Discover from 'components/Discover';
 import Loader from 'components/Loader';
 
 import { Types } from 'store/reducers/movies';
 
-import { Container, Content } from './styles';
+import { Container, Content, Title } from './styles';
 
 function Home() {
   const {
@@ -28,6 +28,28 @@ function Home() {
     }
   }, []);
 
+  const list = useMemo(() => {
+    return !searchText ? discoverList : searchList;
+  }, [searchText, discoverList, searchList]);
+
+  const getTitle = useCallback(() => {
+    return (
+      <Title>
+        {!searchText ? (
+          <>
+            <ImFire size={20} color="#EE1C4F" />
+            <h1>Suggested movies</h1>
+          </>
+        ) : (
+          <>
+            <ImFinder size={20} color="#EE1C4F" />
+            <h1>Search results</h1>
+          </>
+        )}
+      </Title>
+    );
+  }, [searchText]);
+
   return (
     <Container>
       <Header>
@@ -35,11 +57,8 @@ function Home() {
       </Header>
       <Content>
         <Loader />
-        {!searchText ? (
-          <Discover />
-        ) : (
-          <MovieList list={rating ? filtered : searchList} />
-        )}
+        {getTitle()}
+        <MovieList list={rating ? filtered : list} />
       </Content>
     </Container>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import GoSearch from 'react-icons/go';
+import { GoSearch } from 'react-icons/go';
 
 import { Types } from 'store/reducers/movies';
 
@@ -8,7 +8,14 @@ import useDebounce from 'hooks/useDebounce';
 
 import RatingStar from '../RatingStart';
 
-import { Container, Form, FormControl, Input, SearchButton } from './styles';
+import {
+  Container,
+  Form,
+  FormControl,
+  Input,
+  Icon,
+  SearchButton,
+} from './styles';
 
 function Filter() {
   const { searchText, rating } = useSelector(({ movies }) => movies);
@@ -44,7 +51,10 @@ function Filter() {
   return (
     <Container>
       <Form onSubmit={onHandleSubmit}>
-        <FormControl>
+        <FormControl disabled={rating}>
+          <Icon>
+            <GoSearch size={20} />
+          </Icon>
           <Input
             ref={inputRef}
             disabled={rating}

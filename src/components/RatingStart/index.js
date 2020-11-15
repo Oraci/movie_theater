@@ -46,8 +46,9 @@ function RatingStar() {
   );
 
   return (
-    <Container>
+    <Container rating={rating}>
       <Content>
+        <p>Rating: </p>
         {RATINGS.map((item) => {
           return (
             <ContentStar key={item} onClick={() => onHandleSelectStar(item)}>
