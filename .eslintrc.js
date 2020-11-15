@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['airbnb', 'prettier', 'prettier/react'],
+  extends: ['airbnb', 'eslint:recommended', 'prettier', 'prettier/react'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -35,5 +35,9 @@ module.exports = {
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'react/prop-types': 'off',
     'react/jsx-props-no-spreading': ['off'],
+    'jsx-a11y/properties': 0,
+    'jsx-a11y/alt-text': 0,
+    camelcase: 'off',
+    'no-unused-vars': 1,
   },
 };

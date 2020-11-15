@@ -1,5 +1,7 @@
 import { all } from 'redux-saga/effects';
 
+import movies from './movies';
+
 export default function* rootSaga() {
-  return yield all([]);
+  return yield all([movies]);
 }
