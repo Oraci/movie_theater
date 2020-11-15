@@ -21,7 +21,7 @@ function App() {
           <Layout>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/detail" component={Detail} />
+              <Route exact path="/movie/detail/:id" component={Detail} />
             </Switch>
           </Layout>
         </Provider>

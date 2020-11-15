@@ -25,7 +25,7 @@ function Filter() {
 
   useEffect(() => {
     if (searchText.trim().length > 0) {
-      dispatch({ type: Types.FETCH_SEARCH, payload: searchText });
+      dispatch({ type: Types.FETCH_SEARCH, payload: { searchText } });
     }
   }, [debounceText]);
 
@@ -33,7 +33,7 @@ function Filter() {
     e.preventDefault();
 
     if (searchText.trim().length > 0 && e.target.value !== searchText) {
-      dispatch({ type: Types.FETCH_SEARCH, payload: searchText });
+      dispatch({ type: Types.FETCH_SEARCH, payload: { searchText } });
     }
   };
 

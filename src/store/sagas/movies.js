@@ -5,14 +5,28 @@ import { Types } from 'store/reducers/movies';
 import { Types as LoaderTypes } from 'store/reducers/loader';
 
 function* fetchSearchMovies({ payload }) {
-  const params = { query: payload };
+  const { searchText, id } = payload;
+  const params = { query: searchText };
 
   yield put({ type: LoaderTypes.SET_LOADING, payload: true });
 
   try {
     const { data } = yield axios.get('/search/movie', { params });
 
-    yield put({ type: Types.SET_SEARCH_LIST, payload: data?.results || [] });
+    let results = data?.results || [];
+    if (id) {
+      results = results.filter((item) => {
+        const { vote_average } = item;
+
+        if (vote_average <= id) {
+          return item;
+        }
+
+        return null;
+      });
+    }
+
+    yield put({ type: Types.SET_SEARCH_LIST, payload: results });
   } catch (error) {
     console.log(error);
   } finally {

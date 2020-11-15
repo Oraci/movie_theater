@@ -12,22 +12,30 @@ function RatingStar() {
 
   const dispatch = useDispatch();
 
-  const { rating } = useSelector(({ movies }) => movies);
+  const { rating, searchText, searchList, discoverList } = useSelector(
+    ({ movies }) => movies
+  );
 
   const onHandleSelectStar = useCallback(
     (id) => {
       dispatch({ type: Types.SET_RATING, payload: id });
 
-      dispatch({ type: Types.FETCH_DISCOVER, payload: id });
+      const list = searchText ? [...searchList] : [...discoverList];
+
+      dispatch({ type: Types.SET_FILTERED, payload: { list, id } });
     },
     [rating]
   );
+
+  const onHandleClearRating = useCallback(() => {
+    dispatch({ type: Types.CLEAR_RATING });
+  }, [rating]);
 
   const getHoverColor = useCallback(
     (id) => {
       return id <= hoverStar;
     },
-    [rating]
+    [hoverStar]
   );
 
   const getSelectedStar = useCallback(
@@ -55,9 +63,7 @@ function RatingStar() {
             </ContentStar>
           );
         })}
-        {rating && (
-          <Button onClick={() => onHandleSelectStar()}>Clear rating</Button>
-        )}
+        {rating && <Button onClick={onHandleClearRating}>Clear rating</Button>}
       </Content>
     </Container>
   );

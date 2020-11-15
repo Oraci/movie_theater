@@ -1,14 +1,23 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import { Container, Content, Header } from './styles';
+import { Types } from 'store/reducers/movies';
+
+import { Container, Content } from './styles';
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w185';
 
-function Card({ movie, onSelectedCard }) {
-  const { title, poster_path } = movie;
+function Card({ movie }) {
+  const { title, poster_path, id } = movie;
+
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleOnClick = () => {
-    onSelectedCard(movie);
+    dispatch({ type: Types.SET_DETAIL, payload: movie });
+
+    history.push(`/movie/detail/${id}`);
   };
 
   return (

@@ -11,9 +11,13 @@ import { Types } from 'store/reducers/movies';
 import { Container, Content } from './styles';
 
 function Home() {
-  const { searchText, searchList, discoverList } = useSelector(
-    ({ movies }) => movies
-  );
+  const {
+    searchText,
+    searchList,
+    discoverList,
+    rating,
+    filtered,
+  } = useSelector(({ movies }) => movies);
 
   const dispatch = useDispatch();
 
@@ -29,7 +33,11 @@ function Home() {
         <Filter />
       </Header>
       <Content>
-        {!searchText ? <Discover /> : <MovieList list={searchList} />}
+        {!searchText ? (
+          <Discover />
+        ) : (
+          <MovieList list={rating ? filtered : searchList} />
+        )}
       </Content>
     </Container>
   );

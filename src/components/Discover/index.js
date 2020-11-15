@@ -6,12 +6,14 @@ import MovieList from '../MovieList';
 import { Container } from './styles';
 
 function Discover() {
-  const { discoverList } = useSelector(({ movies }) => movies);
+  const { discoverList, rating, filtered } = useSelector(
+    ({ movies }) => movies
+  );
 
   return (
     <Container>
       <h1>Suggested movies</h1>
-      <MovieList list={discoverList} />
+      <MovieList list={rating ? filtered : discoverList} />
     </Container>
   );
 }
