@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { put, takeLatest, all } from 'redux-saga/effects';
 
-import { Types } from 'store/reducers/movies';
-import { Types as LoaderTypes } from 'store/reducers/loader';
+import { Types } from 'store/ducks/movies';
+import { Types as LoaderTypes } from 'store/ducks/loader';
 
 function* fetchSearchMovies({ payload }) {
   const { searchText, id } = payload;

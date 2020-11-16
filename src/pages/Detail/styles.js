@@ -23,7 +23,7 @@ export const Header = styled.header`
 export const BackToButton = styled.div`
   padding: 20px 20px 0 0;
   display: flex;
-  color: #77787b;
+  color: ${({ theme }) => theme.text.lightGrey};
   align-items: center;
 
   p {
@@ -44,6 +44,7 @@ export const Title = styled.h1`
   display: flex;
   flex-direction: column;
   margin: 34px 0 48px 0;
+  font-size: 48px;
 `;
 
 export const Icon = styled.div`
@@ -108,7 +109,7 @@ export const Img = styled.img`
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  border: 2px solid #ffd700;
+  border: 2px solid ${({ theme }) => theme.border.gold};
 `;
 
 export const InfoContainer = styled.div`

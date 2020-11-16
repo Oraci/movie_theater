@@ -7,7 +7,7 @@ import Filter from 'components/Filter';
 import MovieList from 'components/MovieList';
 import Loader from 'components/Loader';
 
-import { Types } from 'store/reducers/movies';
+import { Types } from 'store/ducks/movies';
 
 import { Container, Content, Title } from './styles';
 

@@ -12,12 +12,12 @@ export const Container = styled.div`
   ${(props) =>
     props.rating
       ? css`
-          border: 2px solid #fbc02d;
-          background: #97c8d6;
+          border: 2px solid ${({ theme }) => theme.border.yellow};
+          background: ${({ theme }) => theme.background.sinbad};
         `
       : css`
-          border: 2px solid #d0d0d0;
-          background: #d0d0d0;
+          border: 2px solid ${({ theme }) => theme.border.alto};
+          background: ${({ theme }) => theme.background.alto};
         `}
 `;
 
@@ -46,7 +46,7 @@ export const Svg = styled.svg`
     props.hoverColor
       ? css`
           transform: scale(1.2);
-          fill: #fbc02d;
+          fill: ${({ theme }) => theme.background.yellow};
         `
       : css`
           fill: white;
@@ -55,7 +55,7 @@ export const Svg = styled.svg`
   ${(props) =>
     props.selected &&
     css`
-      fill: #fbc02d;
+      fill: ${({ theme }) => theme.background.yellow};
     `}
 `;
 
@@ -64,6 +64,6 @@ export const Button = styled.button`
   cursor: pointer;
   margin-left: 5px;
   border-radius: 10px;
-  border: 1px solid #fbc02d;
+  border: 1px solid ${({ theme }) => theme.border.yellow};
   outline: none;
 `;

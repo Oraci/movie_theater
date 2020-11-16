@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Types } from 'store/reducers/movies';
+import { Types } from 'store/ducks/movies';
 
 import { Container, Content, ContentStar, Svg, Button } from './styles';
 

@@ -34,8 +34,8 @@ export const FormControl = styled.div`
   ${(props) =>
     props.disabled &&
     css`
-      background: #f2f2f2;
-      border: 1px solid #353f4c;
+      background: ${({ theme }) => theme.background.concrete};
+      border: 1px solid ${({ theme }) => theme.background.oxfordBlue};
     `}
 `;
 
@@ -58,7 +58,7 @@ export const Input = styled.input`
   ${(props) =>
     props.disabled &&
     css`
-      background: #f2f2f2;
+      background: ${({ theme }) => theme.background.concrete};
     `}
 `;
 

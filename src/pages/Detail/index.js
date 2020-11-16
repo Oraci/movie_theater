@@ -6,6 +6,8 @@ import { useHistory } from 'react-router-dom';
 import { BiCalendarHeart } from 'react-icons/bi';
 import { FcRating } from 'react-icons/fc';
 
+import theme from 'theme/theme-styled';
+
 import {
   Container,
   Content,
@@ -47,20 +49,18 @@ function Detail() {
                 <p>Back</p>
               </BackTo>
             </BackToButton>
-            <Title>
-              <h1>{title}</h1>
-            </Title>
+            <Title>{title}</Title>
           </Header>
           <Information>
             <InfoContainer>
               <Info
                 borderLeft
-                background="#EE1C4F"
-                color="#000"
+                background={theme.background.amaranth}
+                color={theme.text.black}
                 paddingRight="5px"
               >
                 <Icon>
-                  <BiCalendarHeart color="#FFF" size={20} />
+                  <BiCalendarHeart color={theme.text.white} size={20} />
                 </Icon>
                 <p>Release date</p>
               </Info>
@@ -69,12 +69,12 @@ function Detail() {
             <InfoContainer>
               <Info
                 borderLeft
-                background="#ffd700"
-                color="#000"
+                background={theme.background.gold}
+                color={theme.text.black}
                 paddingRight="5px"
               >
                 <Icon>
-                  <FcRating color="#EE1C4F" size={20} />
+                  <FcRating color={theme.text.amaranth} size={20} />
                 </Icon>
                 <p>Vote average</p>
               </Info>

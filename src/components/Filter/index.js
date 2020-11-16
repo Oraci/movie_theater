@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { GoSearch } from 'react-icons/go';
 
-import { Types } from 'store/reducers/movies';
+import { Types } from 'store/ducks/movies';
 
 import useDebounce from 'hooks/useDebounce';
 
