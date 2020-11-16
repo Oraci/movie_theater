@@ -8,6 +8,8 @@ import { FcRating } from 'react-icons/fc';
 
 import theme from 'theme/theme-styled';
 
+import image from 'assets/no-image-detail.png';
+
 import {
   Container,
   Content,
@@ -96,7 +98,10 @@ function Detail() {
       </Content>
       {Object.keys(detail).length > 0 && (
         <Image>
-          <Img src={`${IMAGE_BASE_URL}${poster_path}`} alt={title} />
+          <Img
+            src={poster_path ? `${IMAGE_BASE_URL}${poster_path}` : image}
+            alt={title}
+          />
         </Image>
       )}
     </Container>

@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 
 import { Types } from 'store/ducks/movies';
 
+import image from 'assets/no-image.png';
+
 import { Container, Content, Img, Info } from './styles';
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w185';
@@ -23,7 +25,10 @@ function Card({ movie }) {
   return (
     <Container onClick={handleOnClick}>
       <Content>
-        <Img src={`${IMAGE_BASE_URL}${poster_path}`} alt={title} />
+        <Img
+          src={poster_path ? `${IMAGE_BASE_URL}${poster_path}` : image}
+          alt={title}
+        />
         <Info top="10px" right="0" textAlign="right">
           <div>{`Vote: ${vote_average}`}</div>
         </Info>
