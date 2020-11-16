@@ -28,6 +28,7 @@ function* fetchSearchMovies({ payload }) {
 
     yield put({ type: Types.SET_SEARCH_LIST, payload: results });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   } finally {
     yield put({ type: LoaderTypes.SET_LOADING, payload: false });
@@ -62,6 +63,7 @@ function* fetchDiscoverMovies({ payload }) {
 
     yield put({ type: Types.SET_DISCOVER_LIST, payload: results });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   } finally {
     yield put({ type: LoaderTypes.SET_LOADING, payload: false });
