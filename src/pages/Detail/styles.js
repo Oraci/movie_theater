@@ -7,6 +7,7 @@ export const Container = styled.div`
   background: black;
   color: white;
   padding: 20px;
+  flex-wrap: wrap;
 `;
 
 export const Content = styled.div`
@@ -134,3 +135,5 @@ export const ContainerOverview = styled.div`
     margin-bottom: 10px;
   }
 `;
+
+export const NoSelectedMovie = styled.div``;

@@ -4,7 +4,6 @@ export const Container = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* border: 2px solid orange; */
 `;
 
 export const Content = styled.div`

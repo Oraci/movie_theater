@@ -15,6 +15,7 @@ export const Form = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const FormControl = styled.div`

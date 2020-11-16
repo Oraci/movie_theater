@@ -22,6 +22,7 @@ import {
   Icon,
   ContainerOverview,
   Img,
+  NoSelectedMovie,
 } from './styles';
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -39,18 +40,18 @@ function Detail() {
   };
 
   return (
-    Object.keys(detail) && (
-      <Container>
-        <Content>
-          <Header>
-            <BackToButton>
-              <BackTo onClick={onClickBack}>
-                <MdKeyboardBackspace size={24} style={{ marginRight: 6 }} />
-                <p>Back</p>
-              </BackTo>
-            </BackToButton>
-            <Title>{title}</Title>
-          </Header>
+    <Container>
+      <Content>
+        <Header>
+          <BackToButton>
+            <BackTo onClick={onClickBack}>
+              <MdKeyboardBackspace size={24} style={{ marginRight: 6 }} />
+              <p>Back</p>
+            </BackTo>
+          </BackToButton>
+          <Title>{title}</Title>
+        </Header>
+        {Object.keys(detail).length > 0 ? (
           <Information>
             <InfoContainer>
               <Info
@@ -87,12 +88,18 @@ function Detail() {
               </ContainerOverview>
             </InfoContainer>
           </Information>
-        </Content>
+        ) : (
+          <NoSelectedMovie>
+            No movie selected. Come back to home.
+          </NoSelectedMovie>
+        )}
+      </Content>
+      {Object.keys(detail).length > 0 && (
         <Image>
           <Img src={`${IMAGE_BASE_URL}${poster_path}`} alt={title} />
         </Image>
-      </Container>
-    )
+      )}
+    </Container>
   );
 }
 

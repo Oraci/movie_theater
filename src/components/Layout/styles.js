@@ -8,7 +8,6 @@ export const WrapperPage = styled.div`
 `;
 
 export const Container = styled.div`
-  /* border: 1px solid red; */
   display: flex;
   flex: 1;
   flex-direction: column;
